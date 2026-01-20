@@ -5,15 +5,11 @@ class Solution:
         right = len(people)-1
         boats = 0
         while left < right:
-            if people[left] + people[right] == limit:
+            if people[left] + people[right] <= limit:
                 boats += 1
                 left += 1
                 right -= 1
-            elif people[left] + people[right] > limit:   
-                right -= 1
-            elif people[left] + people[right] < limit:
-                boats += 1
-                left += 1
+            elif people[left] + people[right] > limit: 
                 right -= 1
         if boats == 0:
             boats = len(people)
