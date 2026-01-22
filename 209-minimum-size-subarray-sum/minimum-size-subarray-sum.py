@@ -3,7 +3,7 @@ class Solution:
         left,min_len = 0,float('inf')
         sub_arr = []
         curr_sum = 0
-        for right in range(0,len(nums)):
+        for right in range(len(nums)):
             curr_sum += nums[right]
 
             while curr_sum >= target:
@@ -11,7 +11,6 @@ class Solution:
                     min_len = min(min_len, right-left+1)
                     curr_sum -= nums[left]
                     left += 1
-
 
         if min_len == float('inf'):
             return 0
