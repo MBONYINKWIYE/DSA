@@ -12,7 +12,7 @@ class Solution:
                     curr_sum -= nums[left]
                     left += 1
 
-            print(min_len)
+
         if min_len == float('inf'):
             return 0
         else:
