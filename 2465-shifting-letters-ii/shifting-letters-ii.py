@@ -10,14 +10,15 @@ class Solution:
             else:
                 prefix[l] -= 1
                 prefix[r + 1] +=1
-        print(prefix)   
+        
         for i in range(len(s)):
             accumulator += prefix[i]
             prefix[i] = accumulator
+
         result = ""
         for idx, char in enumerate(s):
             temp = (ord(char) - ord('a') + prefix[idx]) % 26
-            result += chr(97 + temp)
-            print(temp)
+            result += chr(ord('a') + temp)
+
         return result
         
