@@ -6,5 +6,4 @@ class Solution:
             curr_point += gain[i]
             highest_alt[i] = curr_point
             
-        print(highest_alt)
         return max(highest_alt)
