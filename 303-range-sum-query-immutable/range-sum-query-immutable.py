@@ -7,7 +7,6 @@ class NumArray:
         for i in range(len(self.prefix)): 
             total += self.prefix[i]
             prefixSum[i] = total
-        print(prefixSum)
         for i in range(len(prefixSum)):
             self.prefix[i] = prefixSum[i]
 
