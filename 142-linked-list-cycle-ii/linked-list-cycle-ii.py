@@ -5,7 +5,7 @@
 #         self.next = None
 
 class Solution:
-    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:        
         prev = right = left = head 
 
         while right and right.next:
@@ -18,6 +18,7 @@ class Solution:
                 break
         else:
             return
+            
         while right != left:
             right = right.next
             left = left.next
