@@ -15,14 +15,11 @@ class Solution:
 
             if left == right:
                 left = head
-                break
-        else:
-            return
-            
-        while right != left:
-            right = right.next
-            left = left.next
-        return left 
+
+                while right != left:
+                    right = right.next
+                    left = left.next
+                return left 
 
 
 
