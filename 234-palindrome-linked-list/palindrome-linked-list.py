@@ -28,7 +28,6 @@ class Solution:
 
             cur = cur.next
             rev_cur = rev_cur.next
-            # print(cur)
-            # print(rev_cur)
+            
         return True
        
