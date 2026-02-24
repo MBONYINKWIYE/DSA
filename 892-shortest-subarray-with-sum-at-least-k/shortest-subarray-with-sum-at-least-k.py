@@ -1,5 +1,6 @@
 class Solution:
     def shortestSubarray(self, nums: List[int], k: int) -> int:
+        from collections import deque
         n = len(nums)
         min_len = float('inf')
         isokay = False
@@ -8,19 +9,19 @@ class Solution:
         for i in range(n):
             prefix_sum[i + 1] = prefix_sum[i] + nums[i]
             
-        dq = deque()
+        queue = deque()
         
         for right in range(n + 1):
-            while dq and prefix_sum[right] - prefix_sum[dq[0]] >= k:
+            while queue and prefix_sum[right] - prefix_sum[queue[0]] >= k:
                 isokay = True
-                left = dq.popleft()
+                left = queue.popleft()
                 min_len = min(min_len, right - left)
             
-            while dq and prefix_sum[right] <= prefix_sum[dq[-1]]:
-                dq.pop()
+            while queue and prefix_sum[right] <= prefix_sum[queue[-1]]:
+                queue.pop()
                 
-            dq.append(right)
+            queue.append(right)
             
-        if not isokay:
-            return -1
-        return min_len
+        if isokay:
+            return min_len
+        return -1
