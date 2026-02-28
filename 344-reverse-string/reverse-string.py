@@ -3,12 +3,10 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        left = 0
-        right = len(s) - 1
-        temp = 0
-        while left < right:
-            temp = s[left]
-            s[left] = s[right]
-            s[right] = temp
-            right -= 1
-            left +=1
+        def rev(left, r):
+            if left >= r:
+                return 
+            s[left], s[r] = s[r], s[left]
+
+            rev(left + 1, r - 1)
+        rev(0, len(s)-1)
