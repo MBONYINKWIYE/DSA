@@ -3,10 +3,11 @@ class Solution:
         """
         Do not return anything, modify s in-place instead.
         """
-        def rev(left, r):
-            if left >= r:
+        def rev(left, right):
+            if left >= right:
                 return 
-            s[left], s[r] = s[r], s[left]
+            s[left], s[right] = s[right], s[left]
 
-            rev(left + 1, r - 1)
+            rev(left + 1, right - 1)
+            
         rev(0, len(s)-1)
