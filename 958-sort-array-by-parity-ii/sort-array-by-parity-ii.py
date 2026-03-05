@@ -9,6 +9,6 @@ class Solution:
                 left += 2
             else:
                 nums[left],nums[right] = nums[right],nums[left]
-                left += 2
-                right += 2
+                # left += 2
+                # right += 2
         return nums
