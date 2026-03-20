@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    from collections import deque
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         res = []
 
@@ -13,17 +14,17 @@ class Solution:
                 return
     
             if len(res) == level:
-                res.append([])
+                res.append(deque())
         
             if level % 2 == 0:
                 res[level].append(node.val)
             else:
-                res[level].insert(0, node.val)
+                res[level].appendleft(node.val)
             
             # Continue recursion to the next level
             traverse(node.left, level + 1)
             traverse(node.right, level + 1)
 
         traverse(root, 0)
-        return res
+        return [list(i) for i in res]
 
